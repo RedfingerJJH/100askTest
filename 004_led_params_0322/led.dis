@@ -1,0 +1,99 @@
+
+led.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	e3a0da01 	mov	sp, #4096	; 0x1000
+   4:	e3a00004 	mov	r0, #4
+   8:	eb000013 	bl	5c <led_on>
+   c:	e59f000c 	ldr	r0, [pc, #12]	; 20 <halt+0x4>
+  10:	eb000003 	bl	24 <delay>
+  14:	e3a00005 	mov	r0, #5
+  18:	eb00000f 	bl	5c <led_on>
+
+0000001c <halt>:
+  1c:	eafffffe 	b	1c <halt>
+  20:	000186a0 	andeq	r8, r1, r0, lsr #13
+
+00000024 <delay>:
+  24:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+  28:	e28db000 	add	fp, sp, #0
+  2c:	e24dd00c 	sub	sp, sp, #12
+  30:	e50b0008 	str	r0, [fp, #-8]
+  34:	e1a00000 	nop			; (mov r0, r0)
+  38:	e51b3008 	ldr	r3, [fp, #-8]
+  3c:	e2432001 	sub	r2, r3, #1
+  40:	e50b2008 	str	r2, [fp, #-8]
+  44:	e3530000 	cmp	r3, #0
+  48:	1afffffa 	bne	38 <delay+0x14>
+  4c:	e1a00000 	nop			; (mov r0, r0)
+  50:	e28bd000 	add	sp, fp, #0
+  54:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+  58:	e12fff1e 	bx	lr
+
+0000005c <led_on>:
+  5c:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+  60:	e28db000 	add	fp, sp, #0
+  64:	e24dd014 	sub	sp, sp, #20
+  68:	e50b0010 	str	r0, [fp, #-16]
+  6c:	e59f305c 	ldr	r3, [pc, #92]	; d0 <led_on+0x74>
+  70:	e50b300c 	str	r3, [fp, #-12]
+  74:	e59f3058 	ldr	r3, [pc, #88]	; d4 <led_on+0x78>
+  78:	e50b3008 	str	r3, [fp, #-8]
+  7c:	e51b3010 	ldr	r3, [fp, #-16]
+  80:	e3530004 	cmp	r3, #4
+  84:	1a000003 	bne	98 <led_on+0x3c>
+  88:	e51b300c 	ldr	r3, [fp, #-12]
+  8c:	e3a02c01 	mov	r2, #256	; 0x100
+  90:	e5832000 	str	r2, [r3]
+  94:	ea000005 	b	b0 <led_on+0x54>
+  98:	e51b3010 	ldr	r3, [fp, #-16]
+  9c:	e3530005 	cmp	r3, #5
+  a0:	1a000002 	bne	b0 <led_on+0x54>
+  a4:	e51b300c 	ldr	r3, [fp, #-12]
+  a8:	e3a02b01 	mov	r2, #1024	; 0x400
+  ac:	e5832000 	str	r2, [r3]
+  b0:	e51b3008 	ldr	r3, [fp, #-8]
+  b4:	e3a02000 	mov	r2, #0
+  b8:	e5832000 	str	r2, [r3]
+  bc:	e3a03000 	mov	r3, #0
+  c0:	e1a00003 	mov	r0, r3
+  c4:	e28bd000 	add	sp, fp, #0
+  c8:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+  cc:	e12fff1e 	bx	lr
+  d0:	56000050 			; <UNDEFINED> instruction: 0x56000050
+  d4:	56000054 			; <UNDEFINED> instruction: 0x56000054
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	3a434347 	bcc	10d0d24 <__bss_end__+0x10c0c4c>
+   4:	62552820 	subsvs	r2, r5, #32, 16	; 0x200000
+   8:	75746e75 	ldrbvc	r6, [r4, #-3701]!	; 0xfffff18b
+   c:	6e694c2f 	cdpvs	12, 6, cr4, cr9, cr15, {1}
+  10:	206f7261 	rsbcs	r7, pc, r1, ror #4
+  14:	2e352e35 	mrccs	14, 1, r2, cr5, cr5, {1}
+  18:	32312d30 	eorscc	r2, r1, #48, 26	; 0xc00
+  1c:	6e756275 	mrcvs	2, 3, r6, cr5, cr5, {3}
+  20:	29317574 	ldmdbcs	r1!, {r2, r4, r5, r6, r8, sl, ip, sp, lr}
+  24:	352e3520 	strcc	r3, [lr, #-1312]!	; 0xfffffae0
+  28:	3220302e 	eorcc	r3, r0, #46	; 0x2e
+  2c:	31373130 	teqcc	r7, r0, lsr r1
+  30:	00303130 	eorseq	r3, r0, r0, lsr r1
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00002541 	andeq	r2, r0, r1, asr #10
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	0000001b 	andeq	r0, r0, fp, lsl r0
+  10:	00543505 	subseq	r3, r4, r5, lsl #10
+  14:	01080306 	tsteq	r8, r6, lsl #6
+  18:	04120109 	ldreq	r0, [r2], #-265	; 0xfffffef7
+  1c:	01150114 	tsteq	r5, r4, lsl r1
+  20:	01180317 	tsteq	r8, r7, lsl r3
+  24:	Address 0x0000000000000024 is out of bounds.
+

@@ -1,0 +1,40 @@
+--version: 查看gcc版本
+-Wall：编译过程中遇到问题，它会输出警告信息
+-o：指定希望使用的文件名
+-E：预处理，文件名的后缀是.i。
+-C：阻止预处理器删除注释
+-Dname[=definition]: 定义符号name
+-Uname：取消name
+-Idirectory[:directory:[...]]: 搜索路径
+1、源代码文件所在的目录
+2、利用-I指定的目录
+3、C_INCLUDE_PATH和CPATH指定的目录
+4、系统默认的include目录
+-I-: 此选项把-Idirectory分成两部分
+1、包含-I-左边-I选项内的目录，它们不会被用于搜索尖括号内的头文件
+2、包含-I-右边-I选项内的目录，这些目录会被用来搜索所有头文件
+
+-S：输出汇编语言，文件名的后缀是.s。-fverbose-asm,把c变量的名称作为汇编语言中的注释
+-c：产生对象文件，文件名的后缀是.o。
+
+-Wa：把命令行选项传递给汇编器
+$ gcc -v -o circle -Wa,-as=circle.sym,-L circle.c
+其中-as=circle.sym，在一个单独的列表中输出模块的符号表，并把指定的列表输出到circle.sym，-L，在符号表内包含局部符号。
+-v: 输出编译中每个步骤
+-a：加多个开关选项（参考汇编器的参考手册）
+-g：输出中包含调试信息
+
+链接不在GCC搜素路径的链接库
+1、指定链接库的完整路径和文件名
+$ gcc -o circle circle.c /usr/local/lib/libmath.a
+2、使用-L选项
+$ gcc -o circle  -L/usr/local/lib -lmath circle.c
+3、把目录加到LIBRARY_PATH环境变量中
+
+-shared：创建共享对象文件，文件名的后缀是.so。
+-static：静态链接，用ldd查看需要使用的动态库
+-save-temps：获得全部的中间输出文件
+-fsyntax-only：语法检查
+
+-ffreestanding和-nostartfiles：独立程序
+-nostdlib: 不链接标准库文件，常用于裸机/bootloader、Linux内核等程序

@@ -52,10 +52,10 @@ void test1(void)
 	
 	/* 第三步：使用指针：1）取值，2）移动指针 */
 	printf("*pi = 0x%x\n",*pi);
-	printf("pc  = %p\n",pc);  printf("*pc = 0x%x\n",*pc);  pc = pc + 1;
-	printf("pc  = %p\n",pc);  printf("*pc = 0x%x\n",*pc);  pc = pc + 1;
-	printf("pc  = %p\n",pc);  printf("*pc = 0x%x\n",*pc);  pc = pc + 1;
-	printf("pc  = %p\n",pc);  printf("*pc = 0x%x\n",*pc);
+	printf("pc  = %p\t",pc);  printf("*pc = 0x%x\n",*pc);  pc = pc + 1;
+	printf("pc  = %p\t",pc);  printf("*pc = 0x%x\n",*pc);  pc = pc + 1;
+	printf("pc  = %p\t",pc);  printf("*pc = 0x%x\n",*pc);  pc = pc + 1;
+	printf("pc  = %p\t",pc);  printf("*pc = 0x%x\n",*pc);
 	printf("//--------------------\n");
 }
 

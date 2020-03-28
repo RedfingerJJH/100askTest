@@ -1,0 +1,13 @@
+yy@ubuntu:~$ cd /usr/local
+yy@ubuntu:~$ sudo mkdir arm
+yy@ubuntu:~$ sudo chmod 777 arm
+yy@ubuntu:~$ cd arm
+yy@ubuntu:~$ cp /home/yy/arm-linux-gcc-4.5.1.tgz arm-linux-gcc-4.5.1.tgz
+yy@ubuntu:~$ ls
+yy@ubuntu:~$ tar xzvf arm-linux-gcc-4.5.1.tgz
+yy@ubuntu:~$ sudo vi /etc/environment
+yy@ubuntu:~$ source /etc/environment
+yy@ubuntu:~$ echo $PATH
+yy@ubuntu:~$ sudo apt-get install libc6:i386
+yy@ubuntu:~$ sudo apt-get install lib32z1
+yy@ubuntu:~$ arm-linux-gcc -v

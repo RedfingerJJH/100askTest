@@ -1,0 +1,13 @@
+yy@ubuntu:~$ cd /usr/local
+yy@ubuntu:~$ sudo mkdir arm
+yy@ubuntu:~$ sudo chmod 777 arm
+yy@ubuntu:~$ cd arm
+yy@ubuntu:~$ cp /home/yy/arm-linux-gcc-5.4.0.tar.gz arm-linux-gcc-5.4.0.tar.gz
+yy@ubuntu:~$ ls
+yy@ubuntu:~$ tar xzvf arm-linux-gcc-5.4.0.tar.gz
+yy@ubuntu:~$ sudo vim /etc/profile
+在文件的尾部添加如下行
+export PATH=$PATH:/usr/local/arm/5.4.0/bin
+yy@ubuntu:~$ source  /etc/profile
+yy@ubuntu:~$ echo $PATH
+yy@ubuntu:~$ arm-linux-gcc -v

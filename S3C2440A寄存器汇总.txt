@@ -1,0 +1,18 @@
+10、PWM Timer
+TCFG0：TIMER CONFIGURATION REGISTER0；Configures the two 8-bit prescalers
+TCFG1：TIMER CONFIGURATION REGISTER1；5-MUX & DMA mode selection register
+TCON： TIMER CONTROL REGISTER；       Timer control register
+TCNTB0：Timer 0 count buffer register
+TCMPB0：Timer 0 compare buffer register
+TCNTO0：Timer 0 count observation register
+TCNTB1：Timer 1 count buffer register
+TCMPB1：Timer 1 compare buffer register
+TCNTO1：Timer 1 count observation register
+TCNTB2：Timer 2 count buffer register
+TCMPB2：Timer 2 compare buffer register
+TCNTO2：Timer 2 count observation register
+TCNTB3：Timer 3 count buffer register
+TCMPB3：Timer 3 compare buffer register
+TCNTO3：Timer 3 count observation register
+TCNTB4：Timer 4 count buffer register
+TCNTO4：Timer 4 count observation register

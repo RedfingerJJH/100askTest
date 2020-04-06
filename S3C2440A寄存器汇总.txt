@@ -1,3 +1,21 @@
+6、NAND Flash Control
+NFCONF  	0x4E000000          R/W      NAND flash configuration register
+NFCONT  	0x4E000004          R/W      NAND flash control register
+NFCMMD  	0x4E000008          R/W      NAND flash command set register
+NFADDR  	0x4E00000C          R/W      NAND flash address set register
+NFDATA  	0x4E000010          R/W      NAND flash data register
+NFMECCD0    0x4E000014          R/W      NAND Flash ECC 1st and 2nd register for main data read
+NFMECCD1    0x4E000018          R/W      NAND Flash ECC 3nd 4th register for main data read 
+NFSECCD  	0x4E00001C          R/W      NAND flash ECC (Error Correction Code) register for spare area data read
+NFSTAT  	0x4E000020          R/W      NAND flash operation status register
+NFESTAT0  	0x4E000024          R/W      NAND flash ECC Status register for I/O [7:0]
+NFESTAT1  	0x4E000028          R/W      NAND flash ECC status register for I/O [15:8]
+NFMECC0  	0x4E00002C  		R        NAND flash ECC register for data[7:0] 
+NFMECC1  	0x4E000030  		R        NAND flash ECC register for data[15:8] 
+NFSECC  	0x4E000034  		R        NAND flash ECC register for I/O [15:0]
+NFSBLK  	0x4E000038          R/W      NAND flash programmable start block address
+NFEBLK  	0x4E00003C          R/W      NAND flash programmable end block address 
+
 10、PWM Timer
 TCFG0：TIMER CONFIGURATION REGISTER0；Configures the two 8-bit prescalers
 TCFG1：TIMER CONFIGURATION REGISTER1；5-MUX & DMA mode selection register
